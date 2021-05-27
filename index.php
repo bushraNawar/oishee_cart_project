@@ -34,9 +34,7 @@
 
                <a class="nav-item nav-link" href="login.php">Login<i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i>   
             <?php  }?>                          
-      <!-- <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      
     </div>
   </div>
 </nav>
