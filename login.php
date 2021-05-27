@@ -107,7 +107,7 @@
   	                </div>
   	                <div class="row">
   	               	  <div class="col-md-6 button-area-login">
-                           <button class="btn btn-default" type="submit" name="login_btn">Login</button>    
+                           <button class="btn btn-default" type="submit" name="login">Login</button>    
   	               	  	 <a href="registration.php" class="btn btn-primary" role="button" name="registration">Register</a>
   	               	     </div>
 
