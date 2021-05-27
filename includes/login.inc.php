@@ -45,14 +45,13 @@
           exit();
          }
 
-         //$retrieveId=mysqli_fetch_assoc($results);
-         //$_SESSION['userId']= $retrieveId['user_id'];
+        
            }
 
      }
 
      
-     else if (isset($_POST['login_btn'])){
+     else if (isset($_POST['login'])){
           $email = mysqli_real_escape_string($db, $_POST['email']);
           $password=mysqli_real_escape_string($db,$_POST['password']);
            if(empty($email)&&empty($password)){
@@ -90,8 +89,7 @@
           exit();
          }
 
-         //$retrieveId=mysqli_fetch_assoc($results);
-         //$_SESSION['userId']= $retrieveId['user_id'];
+        
            }
 
      }
