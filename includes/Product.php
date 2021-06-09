@@ -8,7 +8,8 @@
   	function __construct()
 
   	 {
-         include('../config/db.inc.php');
+           $file_path=realpath(dirname(__FILE__));
+         include($file_path.'/../config/db.inc.php');
          $this->db=$db;
      
   	 }
