@@ -42,8 +42,9 @@
          .implode(', ', $permited)."</span>";
         } else{
           move_uploaded_file($file_temp, $image);
+          $picture="assets/images/".$unique_image;
           $query = "INSERT INTO product(product_name,category_id,description,price,image) 
-          VALUES('$product_name','$category_id','$description','$price','$image')";
+          VALUES('$product_name','$category_id','$description','$price','$picture')";
          $product_insert = mysqli_query($this->db, $query);	
          
           if ($product_insert) {
@@ -120,13 +121,13 @@
          .implode(', ', $permited)."</span>";
          } else{
             move_uploaded_file($file_temp, $image);
-            
+            $picture="assets/images/".$unique_image;
             $query= "UPDATE product
                      SET product_name='$product_name',
                          category_id='$category_id',
                          description='$description',
                          price='$price',
-                         image='$image'
+                         image='$picture'
                          WHERE product_id='$product_id'";
            $product_update= mysqli_query($this->db, $query);	
            

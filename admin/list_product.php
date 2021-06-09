@@ -71,7 +71,7 @@
               
             </td>
            <td>৳<?= $result['price']; ?></td>
-           <td><img src="<?= $result['image']; ?>" style="height: 40px; width: 40px;"></td>
+           <td><img src="../<?= $result['image']; ?>" style="height: 40px; width: 40px;"></td>
         <td><a href="edit_product.php?pd_id=<?=$result['product_id']?>" class="btn btn-primary">Edit</a> || <a href="?delpd=<?=$result['product_id']?>"class="btn btn-danger">Delete</a></td>
       </tr>
       
