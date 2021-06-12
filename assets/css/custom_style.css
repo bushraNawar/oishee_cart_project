@@ -84,3 +84,32 @@ form {
   background-color: #4CAF50;
   color: white;
 }
+/*featured product styles*/
+.featured_display{
+  
+    margin: 2% 0 2% 0%;
+    width:94%;
+    padding:3%;
+}
+/*featured product styles ends*/
+/*style for 404 page starts*/
+
+  
+  .notfound h2{
+    font-size: 100px;
+    line-height: 130px; 
+    text-align: center;}
+  .notfound h2 span{
+    display: block;
+    color: red; 
+    font-size: 170px;}
+/*style for 404 page ends*/
+/*Light Box display product */
+
+/*Lightbox display ends*/
+
+.singleProduct{
+  marker-start: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
