@@ -26,7 +26,7 @@
 
 		$currentDate=date("U");
 
-	 include('db.inc.php');
+	 include('../config/db.inc.php');
 
 
 	$sql = "SELECT * FROM pwdreset WHERE pwdResetSelector='$selector' AND pwdResetExpires>='$currentDate'";
@@ -38,7 +38,7 @@
 	if(!$row=mysqli_fetch_assoc($result))
 		{
 			echo("need to re-submit the request");
-			header("Location:../login.php?needToResubmit=yes");
+			header("Location:../demo.php?needToResubmit=yes");
 			exit();
 
 				
@@ -85,7 +85,7 @@
 
 		
 		
-		header('Location:../login.php?newpwd=passwordUpdated');
+		header('Location:../demo.php?newpwd=passwordUpdated');
 
 
 		

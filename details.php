@@ -9,6 +9,15 @@
 				}
 
 			?>
+			<?php 
+			// retrieving cart quantity
+			if (isset($_POST['submit'])) {
+				$quantity=$_POST['quantity'];
+				$add_to_cart_result=$cart->addToCart($quantity,$product_id);
+				
+			}
+
+			?>
 		<div class="container">
 		<div class="row">
     <div class="col-md-3">
@@ -46,9 +55,23 @@
     </p>
     <p class="card-text">Category:<?=$result['category_name']?></p>
     <p class="card-text">Price:<big>৳<?=$result['price']?></big></p>
-    <a href="#" class="btn btn-primary">Button</a>
+    <div class="row">
+					<form action="" method="post">
+						<input type="number"  name="quantity" value="1"/>
+						<input  class="btn btn-primary"type="submit"  name="submit" value="Buy Now"/>
+					</form>				
+				</div>
+               <span style="font-size: 18px; color: red">
+               	<?php
+                 if (isset($add_to_cart_result)) {
+                 	echo $add_to_cart_result;
+                 }
+               	?>
+               </span>
+              
+    <!-- <a href="details.php?productId=<?=$result['product_id']?>" class="btn btn-primary">Details</a> -->
   </div> 
-		</div>			
+		</div>		
 					<?php  }}?>
 		<!-- end  -->
 		</div>

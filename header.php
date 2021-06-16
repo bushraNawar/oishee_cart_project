@@ -6,16 +6,18 @@ spl_autoload_register(function($class){
   include_once "includes/".$class.".php";
 });
  $product= new Product();
+ $cart= new Cart();
+ $customer= new Customer();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title></title>
   
 
   <!-- prev -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/custom_style.css">
@@ -40,7 +42,7 @@ spl_autoload_register(function($class){
         </ul>
       </li>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cart
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">7
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">2.1</a></li>
@@ -48,21 +50,15 @@ spl_autoload_register(function($class){
          
         </ul>
       </li>
-      
+       <li><a href="cart.php">Cart</a></li>
       <li><a href="#">Contact</a></li>
-    </ul>
-
-   <!-- <?php
-   session_start();
-          if (isset($_SESSION['role'])&&$_SESSION['role']==='user') {
-
-          	
-         
-   ?>
-    <ul class="nav navbar-nav navbar-right">
+        <?php if (isset($_SESSION['customer_id'])) {?>
+           <li><a href="includes/logout.inc.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+   <?php } else { ?>
+     <li><a href="demo.php">Login</a></li>
       
-      <li><a href="../includes/logout.inc.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-    </ul>
-   <?php }?> -->
+<?php } ?>
+     
+
   </div>
 </nav>
