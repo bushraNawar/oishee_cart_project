@@ -52,7 +52,11 @@ spl_autoload_register(function($class){
       </li>
        <li><a href="cart.php">Cart</a></li>
       <li><a href="#">Contact</a></li>
+
         <?php if (isset($_SESSION['customer_id'])) {?>
+           <li><a href="profile.php">Profile</a></li>
+            <li><a href="payment.php">Payment</a></li>
+            <li><a href="order.php">Order Details</a></li>
            <li><a href="includes/logout.inc.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
    <?php } else { ?>
      <li><a href="demo.php">Login</a></li>

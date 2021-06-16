@@ -119,4 +119,34 @@ class Cart
        $cart_delete=mysqli_query($this->db,$query);
       
 	}
+        public function insertOrder($user_id){
+		$user_id=mysqli_real_escape_string($this->db,$user_id);
+        $session_id=session_id();
+		$query     = "SELECT * FROM   cart WHERE session_id='$session_id'";
+        $getProduct    = mysqli_query($this->db, $query);
+	         if (isset($getProduct)) {
+
+	         	while ($result=$getProduct->fetch_assoc()) {
+		         	$product_id   =$result['product_id'];
+		         	$product_name =$result['product_name'];
+		         	$quantity     =$result['quantity'];
+		         	$price        =$result['price'];
+		         	$image        =$result['image'];
+		         	
+                     // insert to customer_order table 
+		         	 $query = "INSERT INTO customer_order(
+				            user_id,product_id,product_name,quantity,price,image) 
+		          VALUES('$user_id','$product_id','$product_name','$quantity','$price','$image')";
+		         $order_insert = mysqli_query($this->db, $query);
+		         	}
+	         }
+	}
+
+
+	public function getOrderProduct( $user_id ){
+
+		$query="SELECT * FROM customer_order WHERE user_id='$user_id' ORDER BY product_id DESC";
+       $get_ordered_data=mysqli_query($this->db,$query);
+       return $get_ordered_data;
+	}
 }

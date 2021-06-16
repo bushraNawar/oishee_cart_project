@@ -121,7 +121,7 @@
 					   		 <a href="index.php" class="btn btn-primary">Continue Shopping</a>
 					   </div>
 					   <div class="row">		 
-                        <a href="order.php" class="btn btn-primary">Checkout</a>
+                        <a href="payment.php" class="btn btn-primary">Checkout</a>
 					   	</div>
 					   	
 					   </div>

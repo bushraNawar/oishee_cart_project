@@ -209,6 +209,73 @@ class Customer
 
 
 
+public function getCustomerInfo($user_id)
+{
+
+  $query = "SELECT * FROM users WHERE user_id='$user_id'";
+            $result = mysqli_query($this->db, $query);
+            if (mysqli_num_rows($result) > 0){ 
+              return $result;
+            }
+            else
+            {
+              return false;
+            }
+}
+
+
+
+public function editCustomerInfo($data,$user_id){
+        $first_name       = mysqli_real_escape_string($this->db, $_POST['first_name']);
+        $last_name        = mysqli_real_escape_string($this->db, $_POST['last_name']);
+        $email            = mysqli_real_escape_string($this->db, $_POST['email']);
+  
+        $contact_number   = mysqli_real_escape_string($this->db, $_POST['contact_number']);
+        $address = mysqli_real_escape_string($this->db, $_POST['address']);
+        $user_id       = mysqli_real_escape_string($this->db, $user_id);
+          if(empty($first_name)||empty($last_name)||empty($email))
+          {
+             return $msg="<span class='error'>Fields(First Name, Last Name, Email,Password,Confirm Password )MUST not left empty! </span>";
+
+          }
+           if (!preg_match("/^[a-zA-Z-'_]*$/",$first_name)) {
+           
+            return $msg="<span class='error'>Invalid First Name.First Name can contain alphabets and _ . </span>";
+       
+          }
+           if (!preg_match("/^[a-zA-Z-'_]*$/",$last_name)) {
+             
+              return $msg="<span class='error'>Invalid Last Name.Last Name can contain alphabets and _ . </span>";
+            
+          }
+
+          if (!empty($contact_number)&&!preg_match("/^(?:\+?88)?01[13-9]\d{8}$/",$contact_number)) {
+            return $msg="<span class='error'>Invalid Contact Number. Please enter a valid contact number. </span>";
+          }
+          if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+             return $msg="<span class='error'>Invalid email .Please enter valid email.</span>";
+             
+          }
+          $query =    $query="UPDATE users
+            SET first_name='$first_name',
+                last_name='$last_name',
+                email='$email',
+                contact_number= '$contact_number',
+                address='$address'
+
+
+            WHERE user_id='$user_id'";
+                  $insert_row=mysqli_query($this->db, $query);
+                    if ($insert_row) {
+                      return $msg="<span class='success'>Updated sucessfully.</span>";
+                    }else{
+                      return $msg="<span class='error'>Update  Failed!</span>";
+
+                    }
+
+                 
+
+}
 
 
 
