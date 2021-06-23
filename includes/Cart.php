@@ -119,8 +119,10 @@ class Cart
        $cart_delete=mysqli_query($this->db,$query);
       
 	}
-        public function insertOrder($user_id){
+	public function insertOrder($user_id,$paymentID,$payment_response){
 		$user_id=mysqli_real_escape_string($this->db,$user_id);
+		$payment_id=mysqli_real_escape_string($this->db,$paymentID);
+		$payment_response=mysqli_real_escape_string($this->db,$payment_response);
         $session_id=session_id();
 		$query     = "SELECT * FROM   cart WHERE session_id='$session_id'";
         $getProduct    = mysqli_query($this->db, $query);
@@ -134,9 +136,9 @@ class Cart
 		         	$image        =$result['image'];
 		         	
                      // insert to customer_order table 
-		         	 $query = "INSERT INTO customer_order(
-				            user_id,product_id,product_name,quantity,price,image) 
-		          VALUES('$user_id','$product_id','$product_name','$quantity','$price','$image')";
+		         	 $query = "INSERT INTO orders(
+				            user_id,payment_id,product_id,product_name,quantity,price,image,payment_response) 
+		          VALUES('$user_id','$payment_id','$product_id','$product_name','$quantity','$price','$image','$payment_response')";
 		         $order_insert = mysqli_query($this->db, $query);
 		         	}
 	         }
@@ -145,8 +147,15 @@ class Cart
 
 	public function getOrderProduct( $user_id ){
 
-		$query="SELECT * FROM customer_order WHERE user_id='$user_id' ORDER BY product_id DESC";
+		$query="SELECT * FROM orders WHERE user_id='$user_id' ORDER BY product_id DESC";
        $get_ordered_data=mysqli_query($this->db,$query);
        return $get_ordered_data;
 	}
+
+
+	public function insertData(){
+		
+	}
+	
+
 }
