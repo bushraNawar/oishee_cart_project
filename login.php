@@ -197,7 +197,7 @@ if(!isset($_SESSION['access_token']))
     <img src="<?=$_SESSION["user_image"]?>" class="img-responsive img-circle img-thumbnail" />
     <h3><b>Name :</b> <?=$_SESSION['user_first_name']?> <?=$_SESSION['user_last_name']?></h3>
     <h3><b>Email :</b> <?=$_SESSION['google_user_email_address']?></h3>
-   <!--  <h3><a href="includes/logout.inc.php">Logout</h3></div> -->
+    <h3><a href="includes/logout.inc.php">Logout</h3></div>
   <?php }
    else
    { ?>
