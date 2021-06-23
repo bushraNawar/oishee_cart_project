@@ -19,6 +19,7 @@ if (isset($get_contact_us_result)) {
 <table>
 
 <tr>
+<i  class="fa fa-comment" style="font-size: 40px;"> </i>	
 <td colspan="3"><h3><strong>Contact Form</strong></h3></td> 
 </tr>
 <tr>
@@ -33,7 +34,7 @@ if (isset($get_contact_us_result)) {
 <tr><th>Message</th></tr>
 <tr><th><i class="fa fa-pencil-square"></i></th></tr>
 <tr> <td> <textarea  name="message" placeholder="Write something.." style="height:1s00px"></textarea></td></tr>
-<tr> <td><button class="btn btn-primary" type="submit" name="contact_us">Submit</button></td></tr>
+<tr> <td><button class="btn btn-primary" type="submit" name="contact_us"><i class="fa fa-send"></i> Submit</button></td></tr>
  
     
   

@@ -32,11 +32,11 @@ spl_autoload_register(function($class){
       <a class="navbar-brand" href="#">Cart Project</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.php">Home</a></li>
+      <li ><a href="index.php"><i  class="fa fa-home"> </i>Home</a></li>
       
       
-       <li><a href="cart.php">Cart</a></li>
-      <li><a href="contact_form.php">Contact</a></li>
+       <li><a href="cart.php"><i  class="fa fa-cart-plus"> </i>Cart</a></li>
+      <li><a href="contact_form.php"><i  class="fa fa-comment"> </i>Contact</a></li>
 
         <?php if (isset($_SESSION['customer_id'])||isset($_SESSION['google_user_email_address'])) {?>
            <li><a href="profile.php">Profile</a></li>
@@ -44,7 +44,7 @@ spl_autoload_register(function($class){
             <li><a href="order.php">Order Details</a></li>
            <li><a href="includes/logout.inc.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
    <?php } else { ?>
-     <li><a href="login.php">Login</a></li>
+     <li><a href="login.php"><i class="fa fa-sign-in"></i>Login</a></li>
       
 <?php } ?>
      
