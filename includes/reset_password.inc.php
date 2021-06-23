@@ -38,7 +38,7 @@
 	if(!$row=mysqli_fetch_assoc($result))
 		{
 			echo("need to re-submit the request");
-			header("Location:../demo.php?needToResubmit=yes");
+			header("Location:../login.php?needToResubmit=yes");
 			exit();
 
 				
@@ -85,7 +85,7 @@
 
 		
 		
-		header('Location:../demo.php?newpwd=passwordUpdated');
+		header('Location:../login.php?newpwd=passwordUpdated');
 
 
 		

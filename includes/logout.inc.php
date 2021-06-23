@@ -5,7 +5,7 @@
      $cart=new Cart();
     
     if (!isset($_SESSION['customer_logged_in'])) {
-      header("Location:../demo.php");
+      header("Location:../login.php");
   exit();
       }
     if (isset($_SESSION['customer_logged_in'])) {

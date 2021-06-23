@@ -59,7 +59,7 @@ spl_autoload_register(function($class){
             <li><a href="order.php">Order Details</a></li>
            <li><a href="includes/logout.inc.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
    <?php } else { ?>
-     <li><a href="demo.php">Login</a></li>
+     <li><a href="login.php">Login</a></li>
       
 <?php } ?>
      
