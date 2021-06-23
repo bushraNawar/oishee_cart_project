@@ -7,7 +7,17 @@ if (!isset($_SESSION['customer_logged_in'])) {
   
 }
 ?>
+<?php
+if (isset($_GET['payment_status'])&&$_GET['payment_status']==='successful') {
+?>
+<div class="success">
+ <p>Payment sucessful.</p> 
+  
+</div>
 
+<?php }
+
+?>
 <div class="container">
 
 <div class="row">
