@@ -53,7 +53,7 @@ spl_autoload_register(function($class){
        <li><a href="cart.php">Cart</a></li>
       <li><a href="#">Contact</a></li>
 
-        <?php if (isset($_SESSION['customer_id'])) {?>
+        <?php if (isset($_SESSION['customer_id'])||isset($_SESSION['google_user_email_address'])) {?>
            <li><a href="profile.php">Profile</a></li>
             <li><a href="payment.php">Payment</a></li>
             <li><a href="order.php">Order Details</a></li>

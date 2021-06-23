@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '98369eb0d0bf29b4e08747cf6bdee9058b7a6a7e',
+        'reference' => '0a711539a9c745f1a2ca784b09442e987a8b608c',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '98369eb0d0bf29b4e08747cf6bdee9058b7a6a7e',
+            'reference' => '0a711539a9c745f1a2ca784b09442e987a8b608c',
             'dev_requirement' => false,
         ),
         'authorizenet/authorizenet' => array(

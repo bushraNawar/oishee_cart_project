@@ -7,7 +7,73 @@
 		exit();
 	}
 	?>
+<?php
+//Include Configuration File
+include('config/config.php');
 
+$login_button = '';
+
+
+if(isset($_GET["code"]))
+{
+
+ $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
+
+
+ if(!isset($token['error']))
+ {
+ 
+  $google_client->setAccessToken($token['access_token']);
+
+ 
+  $_SESSION['access_token'] = $token['access_token'];
+
+ 
+
+
+
+  $google_service = new Google_Service_Oauth2($google_client);
+
+ 
+  $data = $google_service->userinfo->get();
+
+ 
+  if(!empty($data['given_name']))
+  {
+   $_SESSION['user_first_name'] = $data['given_name'];
+  }
+
+  if(!empty($data['family_name']))
+  {
+   $_SESSION['user_last_name'] = $data['family_name'];
+  }
+
+  if(!empty($data['email']))
+  {
+   $_SESSION['google_user_email_address'] = $data['email'];
+  }
+
+  if(!empty($data['gender']))
+  {
+   $_SESSION['user_gender'] = $data['gender'];
+  }
+
+  if(!empty($data['picture']))
+  {
+   $_SESSION['user_image'] = $data['picture'];
+  }
+ }
+}
+
+
+if(!isset($_SESSION['access_token']))
+{
+
+ $login_button = '<a href="'.$google_client->createAuthUrl().'">Login With Google</a>';
+}
+
+?>
+<!-- prev -->
    <?php
     if(isset($_POST['login'])){
     	$email                  =$_POST['email'];
@@ -119,3 +185,27 @@
 	    	</div>
 	    	</div>
 	    </div>
+	    <div class="container">
+   <br />
+   <h2 align="center"> Login using Google Account</h2>
+   <br />
+   <div class="panel panel-default">
+   <?php
+   if($login_button == '')
+   { ?>
+   <div class="panel-heading">Welcome User</div><div class="panel-body">
+    <img src="<?=$_SESSION["user_image"]?>" class="img-responsive img-circle img-thumbnail" />
+    <h3><b>Name :</b> <?=$_SESSION['user_first_name']?> <?=$_SESSION['user_last_name']?></h3>
+    <h3><b>Email :</b> <?=$_SESSION['google_user_email_address']?></h3>
+   <!--  <h3><a href="includes/logout.inc.php">Logout</h3></div> -->
+  <?php }
+   else
+   { ?>
+     <div align="center" ><?=$login_button ?> </div>
+   <?php }
+   ?>
+   </div>
+  </div>
+  <?php 
+include('footer.php');
+  ?>
